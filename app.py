@@ -1,4 +1,4 @@
-#listas doblemente ligadas
+# listas doblemente ligadas
 
 class Nodo:
     def __init__(self, dato):
@@ -31,36 +31,35 @@ class ListaDoble:
         if self.esta_vacia():
             self.cabeza= nuevo
             self.cola= nuevo
-
         else:
             self.cola.siguiente = nuevo
             nuevo.anterior = self.cola
-        self.cola = nuevo
+            self.cola = nuevo   # ✅ esto debe ir dentro del else (o al final bien indentado)
 
-    def eliminar_inicio(self, dato):
+    def eliminar_inicio(self):  # ✅ quitado dato porque no se usa
         if self.esta_vacia():
             return None
 
-        if self.cabeza.dato==self.cola.dato:
+        # ✅ si solo hay un nodo (mejor comparar nodos, no datos)
+        if self.cabeza == self.cola:
             self.cabeza= None
             self.cola= None
-
-        else :
+        else:
             self.cabeza= self.cabeza.siguiente
             self.cabeza.anterior=None
 
-    def eliminar_final(self, dato):
+    def eliminar_final(self):   # ✅ quitado dato porque no se usa
         if self.esta_vacia():
             return None
 
-        if self.cabeza.dato==self.cola.dato:
+        if self.cabeza == self.cola:
             self.cabeza= None
             self.cola= None
         else:
             self.cola= self.cola.anterior
             self.cola.siguiente=None
     
-    def recorrer_adelante(self,dato):
+    def recorrer_adelante(self):
         if self.esta_vacia():
             print("lista vacía")
             return
@@ -69,10 +68,10 @@ class ListaDoble:
         actual=self.cabeza
         while actual:
             print(actual.dato, end="->")
-            actaual=actual.siguiente
+            actual=actual.siguiente
         print("fin")
 
-    def recorrer_atras(self,dato):
+    def recorrer_atras(self):
         if self.esta_vacia():
             print("lista vacía")
             return
@@ -81,15 +80,15 @@ class ListaDoble:
         actual=self.cola
         while actual:
             print(actual.dato, end="->")
-            actaual=actual.anterior
+            actual=actual.anterior
         print("inicio")       
  
     def buscar(self,dato):
-        actaul =self.cabeza
+        actual = self.cabeza   # ✅ corregido (antes: actaul)
         while actual:
             if actual.dato==dato:
                 return True
-            actaual= actual.siguiente
+            actual= actual.siguiente
 
         return False
 
@@ -97,12 +96,12 @@ class ListaDoble:
         contador = 0
         actual = self.cabeza
         while actual:
-            contador += contador
+            contador += 1       # ✅ antes sumabas contador consigo mismo
             actual=actual.siguiente
-            return contador
+        return contador          # ✅ return debe ir fuera del while
 
-    def __rtr__(self):
-        if self.esta_vacía():
+    def __str__(self):          # ✅ era __rtr__ (no existe)
+        if self.esta_vacia():   # ✅ era esta_vacía con tilde (no existe)
             return "Lista Vacía"
 
         elementos =[]
@@ -110,7 +109,7 @@ class ListaDoble:
         while actual:
             elementos.append(str(actual.dato))
             actual = actual.siguiente
-        return"<=>".join(elementos)
+        return " <=> ".join(elementos)
 
 lista=ListaDoble()
 lista.insertar_final(10)
