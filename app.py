@@ -1,5 +1,3 @@
-# listas doblemente ligadas
-
 class Nodo:
     def __init__(self, dato):
         self.dato = dato
@@ -34,13 +32,11 @@ class ListaDoble:
         else:
             self.cola.siguiente = nuevo
             nuevo.anterior = self.cola
-            self.cola = nuevo   # ✅ esto debe ir dentro del else (o al final bien indentado)
-
-    def eliminar_inicio(self):  # ✅ quitado dato porque no se usa
+            self.cola = nuevo   
+    def eliminar_inicio(self):  
         if self.esta_vacia():
             return None
 
-        # ✅ si solo hay un nodo (mejor comparar nodos, no datos)
         if self.cabeza == self.cola:
             self.cabeza= None
             self.cola= None
@@ -48,7 +44,7 @@ class ListaDoble:
             self.cabeza= self.cabeza.siguiente
             self.cabeza.anterior=None
 
-    def eliminar_final(self):   # ✅ quitado dato porque no se usa
+    def eliminar_final(self):   
         if self.esta_vacia():
             return None
 
@@ -84,7 +80,7 @@ class ListaDoble:
         print("inicio")       
  
     def buscar(self,dato):
-        actual = self.cabeza   # ✅ corregido (antes: actaul)
+        actual = self.cabeza   
         while actual:
             if actual.dato==dato:
                 return True
@@ -96,12 +92,12 @@ class ListaDoble:
         contador = 0
         actual = self.cabeza
         while actual:
-            contador += 1       # ✅ antes sumabas contador consigo mismo
+            contador += 1       
             actual=actual.siguiente
-        return contador          # ✅ return debe ir fuera del while
+        return contador          
 
-    def __str__(self):          # ✅ era __rtr__ (no existe)
-        if self.esta_vacia():   # ✅ era esta_vacía con tilde (no existe)
+    def __str__(self):          
+        if self.esta_vacia():  
             return "Lista Vacía"
 
         elementos =[]
