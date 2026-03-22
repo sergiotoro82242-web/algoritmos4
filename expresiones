@@ -1,0 +1,20 @@
+def verificar_expresion(expresion):
+    pila = []
+    pares = {')': '(', ']': '[', '}': '{'}
+
+    for caracter in expresion:
+        if caracter in "([{":
+            pila.append(caracter)
+
+        elif caracter in ")]}":
+            if not pila:
+                return False
+
+            ultimo = pila.pop()
+            if pares[caracter] != ultimo:
+                return False
+
+    return len(pila) == 0
+
+exp = "{([])}"
+print(verificar_expresion(exp))

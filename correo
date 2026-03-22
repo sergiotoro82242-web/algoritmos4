@@ -1,0 +1,65 @@
+import re
+
+# --------------------------------------------
+# 1️⃣ VALIDACIÓN SIMPLE (fácil para ejercicios)
+# --------------------------------------------
+
+# Expresión regular:
+patron_simple = r"[^@\s]+@[^@\s]+\.[^@\s]+"
+
+# Explicación:
+# [^@\s]+   -> uno o más caracteres que NO sean @ ni espacios (usuario)
+# @         -> debe existir una arroba
+# [^@\s]+   -> dominio antes del punto (ej: gmail)
+# \.        -> punto literal
+# [^@\s]+   -> extensión del dominio (ej: com)
+
+correo1 = "ana@gmail.com"
+
+if re.fullmatch(patron_simple, correo1):
+    print("Correo válido (patrón simple)")
+else:
+    print("Correo inválido (patrón simple)")
+
+
+# ------------------------------------------------------
+# 2️⃣ VALIDACIÓN MÁS COMPLETA (usada en muchos sistemas)
+# ------------------------------------------------------
+
+patron_google = r"^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"
+
+# Explicación:
+# ^                     -> inicio de la cadena
+#
+# [A-Za-z0-9._%+-]+     -> usuario del correo
+#                         permite:
+#                         letras mayúsculas A-Z
+#                         letras minúsculas a-z
+#                         números 0-9
+#                         punto .
+#                         guion bajo _
+#                         porcentaje %
+#                         +
+#                         -
+#                         y debe haber al menos uno (+)
+#
+# @                     -> símbolo obligatorio del correo
+#
+# [A-Za-z0-9.-]+        -> dominio
+#                         permite letras, números, puntos y guiones
+#
+# \.                    -> punto literal antes de la extensión
+#
+# [A-Za-z]{2,}          -> extensión del dominio
+#                         solo letras
+#                         mínimo 2 caracteres
+#                         ejemplos: com, org, net, edu, co
+#
+# $                     -> final de la cadena
+
+correo2 = "juan.perez@gmail.com"
+
+if re.fullmatch(patron_google, correo2):
+    print("Correo válido (patrón avanzado)")
+else:
+    print("Correo inválido (patrón avanzado)")

@@ -1,0 +1,39 @@
+catalogo = {
+    "Inception": {"ciencia ficción", "acción", "thriller", "drama"},
+    "The Matrix": {"ciencia ficción", "acción", "thriller"},
+    "Titanic": {"romance", "drama", "histórica"},
+    "The Notebook": {"romance", "drama"},
+    "Avengers": {"acción", "ciencia ficción", "aventura"},
+    "John Wick": {"acción", "thriller", "crimen"},
+    "Interstellar": {"ciencia ficción", "drama", "aventura"},
+    "The Godfather": {"crimen", "drama", "thriller"},
+    "Toy Story": {"animación", "comedia", "aventura"},
+    "Shrek": {"animación", "comedia", "aventura"},
+}
+
+peliculas = list(catalogo.keys())
+
+a=catalogo["Toy Story"]
+
+for i in range(len(peliculas)):
+    for j in range(i+1, len(peliculas)):
+        p1,p2=peliculas[i],peliculas[j]
+        comunes=catalogo[p1] & catalogo[p2]
+        if len(comunes) >=2:
+            peliculas_comumes.append(p1,p2, comunes)
+print(peliculas_comunes)
+
+favoritos_mios ={"accion","thriller", "avetura"}
+
+recomendaciones=[]
+
+for peliculas,generos in catalogo.items():
+    coincidencia=generos & favoritos_mios
+
+    if coincidencia:
+        porcentaje=round((len(coincidencia)/len(favoritos_mios))*100,2)
+        recomendaciones.append((pelicula,porcentaje))
+
+print(recomendaciones)
+
+

@@ -1,0 +1,13 @@
+import re
+
+texto="Python es genial Genial"
+
+resultado = re.findall("genial", texto, re.IGNORECASE)
+
+print(resultado)
+
+import re
+texto="tengo 12 manzanass, 5 peraas y 10 mangos"
+resultado = re.findall(r"\d+",resultado)
+
+print(resultado)
