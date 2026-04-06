@@ -1,0 +1,32 @@
+def verificar_expresion(expresion):
+    pila = []
+    pares = {')': '(', ']': '[', '}': '{'}
+
+    for caracter in expresion:
+
+        if caracter in "([{":
+            if pila and pila[-1] == '(':
+                return False
+            if pila and pila[-1] == '[' and caracter == '{':
+                return False
+            pila.append(caracter)
+
+        elif caracter in ")]}":
+            if not pila:
+                return False
+            ultimo = pila.pop()
+            if pares[caracter] != ultimo:
+                return False
+
+        elif caracter.isdigit():
+            if not pila or pila[-1] != '(':
+                return False
+
+        else:
+            return False
+
+    return len(pila) == 0
+
+
+exp = "{[(123)]}"
+print(verificar_expresion(exp))

@@ -1,0 +1,26 @@
+canciones_juan = {
+    "Viva La Vida",
+    "Believer",
+    "Counting Stars",
+    "Wake Me Up",
+    "Blinding Lights",
+    "Levitating",
+    "Titanium",
+    "Summer"
+}
+
+canciones_maria = {
+    "Believer",
+    "Summer",
+    "Shape of You",
+    "Bad Habits",
+    "Dance Monkey",
+    "Havana",
+    "Senorita",
+    "Perfect"
+}
+
+playlist_comun= canciones_juan.intersection(canciones_maria)
+recomendaciones_juan= canciones_maria - canciones_juan
+catalogo=canciones_juan | canciones_maria 
+excluivas canciones_juan ^ canciones_maria

@@ -1,0 +1,10 @@
+def factorial(n):
+    if n == 0:
+        print(fin)
+        return 
+
+    else: 
+        return n * factorial(n-1)
+
+    print=int(input("por favor ingrese un número: "))
+

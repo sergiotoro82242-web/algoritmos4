@@ -1,0 +1,46 @@
+algoritmos = {
+    "Ana", "Carlos", "Diana", "Eduardo", "Fernanda",
+    "Gabriel","Helena", "Ivan"
+}
+
+bases_de_datos = {
+    "Carlos", "Diana", "Eduardo", "Fernanda",
+    "Gabriel","Helena", "Ivan", "Jorge"
+}
+redes = {
+    "Diana", "Eduardo", "Fernanda",
+    "Gabriel","Helena", "Ivan", "Jorge", "Karla"
+}
+estudian_todas = algoritmos & bases_de_datos & redes #Intersección de los conjuntos
+estudian_algoritmos = algoritmos - (bases_de_datos | redes) #Diferencia de algoritmos con la unión de bases de datos y redes
+estudian_algoritmos_redes = (algoritmos & redes) - bases_de_datos #Intersección de algoritmos y redes menos la intersección de algoritmos y bases de datos
+estudian_algoritmos_o_redes = algoritmos | redes #Unión de algoritmos y redes
+estudian_algoritmos_no_redes = algoritmos - redes #Diferencia de algoritmos con redes
+
+solo_algoritmos = algoritmos - bases_de_datos - redes
+solo_bases = bases_de_datos - algoritmos - redes
+solo_redes = redes - algoritmos - bases_de_datos
+
+solo_una = solo_algoritmos | solo_bases | solo_redes
+ 
+print(len(solo_una))
+
+materias_por_estudiante = {}
+
+todos = algoritmos | bases_de_datos | redes
+
+for estudiante in sorted(todos):
+    materias = []
+
+    if estudiante in algoritmos:
+        materias.append("Algoritmos")
+
+    if estudiante in bases_de_datos:
+        materias.append("Bases de Datos")
+
+    if estudiante in redes:
+        materias.append("Redes")
+
+    materias_por_estudiante[estudiante] = materias
+
+print(materias_por_estudiante)
