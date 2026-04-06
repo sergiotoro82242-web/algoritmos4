@@ -1,0 +1,344 @@
+todo
+# 🐍 GUÍA COMPLETA PYTHON – PARCIAL (VERSIÓN FULL + MÉTODOS Y FUNCIONES)
+
+---
+
+# 📌 1. VARIABLES Y TIPOS DE DATOS
+
+```python
+x = 10
+y = 3.14
+nombre = "Ana"
+activo = True
+```
+
+---
+
+# 📌 2. OPERADORES
+
+```python
+a = 10
+b = 3
+
+print(a + b)
+print(a - b)
+print(a * b)
+print(a / b)
+print(a // b)  # división entera
+print(a % b)   # residuo
+```
+
+---
+
+# ⏱️ 3. TIEMPO (DIVISIÓN Y MÓDULO)
+
+```python
+segundos = 125
+
+minutos = segundos // 60
+resto = segundos % 60
+
+print(minutos, resto)
+```
+
+---
+
+# 📌 4. CONDICIONALES
+
+```python
+if x > 5:
+    print("Mayor")
+else:
+    print("Menor")
+```
+
+---
+
+# 📌 5. CICLOS
+
+```python
+for i in range(1, 6):
+    print(i)
+
+i = 1
+while i <= 5:
+    print(i)
+    i += 1
+```
+
+---
+
+# 📌 6. FUNCIONES (MUY IMPORTANTE)
+
+## Función básica
+
+```python
+def saludar():
+    print("Hola")
+```
+
+---
+
+## Función con parámetros
+
+```python
+def sumar(a, b):
+    return a + b
+```
+
+---
+
+## Función con valor por defecto
+
+```python
+def saludar(nombre="Usuario"):
+    print("Hola", nombre)
+```
+
+---
+
+## Función con múltiples retornos
+
+```python
+def operaciones(a, b):
+    return a + b, a - b
+```
+
+---
+
+## Función lambda
+
+```python
+doble = lambda x: x * 2
+print(doble(5))
+```
+
+---
+
+# 🔁 7. RECURSIVIDAD
+
+```python
+def factorial(n):
+    if n == 0:
+        return 1
+    return n * factorial(n - 1)
+```
+
+---
+
+# 📋 8. LISTAS + MÉTODOS
+
+```python
+lista = [3, 1, 2]
+
+lista.append(4)     # agregar
+lista.insert(1, 10) # insertar
+lista.remove(3)     # eliminar
+lista.pop()         # elimina último
+lista.sort()        # ordenar
+lista.reverse()     # invertir
+
+print(len(lista))   # tamaño
+```
+
+---
+
+# 🧮 9. CONJUNTOS + MÉTODOS
+
+```python
+A = {1, 2, 3}
+B = {3, 4, 5}
+
+A.add(6)            # agregar
+A.remove(2)         # eliminar (error si no existe)
+A.discard(10)       # eliminar sin error
+
+print(A | B)        # unión
+print(A & B)        # intersección
+print(A - B)        # diferencia
+```
+
+---
+
+# 📊 10. DICCIONARIOS + MÉTODOS
+
+```python
+persona = {"nombre": "Daniel", "edad": 20}
+
+persona["ciudad"] = "Medellín"  # agregar
+
+print(persona.get("nombre"))   # obtener seguro
+print(persona.keys())          # llaves
+print(persona.values())        # valores
+print(persona.items())         # pares
+
+persona.pop("edad")            # eliminar
+```
+
+---
+
+# 📧 11. VALIDACIONES
+
+## Email
+
+```python
+import re
+
+def validar_email(email):
+    patron = r'^[\w\.-]+@[\w\.-]+\.\w+$'
+    return re.match(patron, email) != None
+```
+
+---
+
+## Password
+
+```python
+def validar_password(p):
+    return len(p) >= 8 and any(c.isupper() for c in p) and any(c.isdigit() for c in p)
+```
+
+---
+
+# 📦 12. MANEJO DE ERRORES
+
+```python
+try:
+    x = int("abc")
+except ValueError:
+    print("Error")
+finally:
+    print("Fin")
+```
+
+---
+
+# 📂 13. ARCHIVOS
+
+```python
+with open("archivo.txt", "w") as f:
+    f.write("Hola")
+```
+
+---
+
+# 🔗 14. CLASES Y MÉTODOS
+
+```python
+class Persona:
+    def __init__(self, nombre):
+        self.nombre = nombre
+    
+    def saludar(self):
+        return "Hola " + self.nombre
+
+p = Persona("Daniel")
+print(p.saludar())
+```
+
+---
+
+# 📌 15. SUBCONJUNTOS
+
+```python
+def es_subconjunto(A, B):
+    for x in A:
+        if x not in B:
+            return False
+    return True
+```
+
+---
+
+# 🔐 16. PERMISOS
+
+```python
+def tiene_permisos(usuario, requeridos):
+    return es_subconjunto(requeridos, usuario)
+```
+
+---
+
+# 🎯 17. FUNCIONES BUILT-IN (IMPORTANTES)
+
+```python
+len([1,2,3])        # tamaño
+max([1,5,3])        # mayor
+min([1,5,3])        # menor
+sum([1,2,3])        # suma
+
+sorted([3,1,2])     # ordenar
+```
+
+---
+
+# 🔥 18. MÉTODOS DE STRING
+
+```python
+texto = "hola mundo"
+
+print(texto.upper())      # MAYUS
+print(texto.lower())      # minus
+print(texto.capitalize()) # Hola mundo
+print(texto.split())      # ['hola', 'mundo']
+print(texto.replace("hola", "hi"))
+```
+
+---
+
+# 🎯 19. EJERCICIOS CLAVE
+
+## Par o impar
+
+```python
+def es_par(n):
+    return n % 2 == 0
+```
+
+---
+
+## Contar palabras
+
+```python
+def contar(texto):
+    palabras = texto.split()
+    return len(palabras)
+```
+
+---
+
+## Recorrer lista
+
+```python
+for x in [1,2,3]:
+    print(x)
+```
+
+---
+
+# 🧠 RESUMEN FINAL (MEMORIZAR)
+
+* `%` → residuo
+* `//` → división entera
+* `set()` → elimina repetidos
+* `dict.get()` → evita error
+* `append()` → agrega
+* `pop()` → elimina
+* `len()` → tamaño
+* `any()` → condición en lista
+
+---
+
+# 💥 TIP DE PARCIAL
+
+Si el problema dice:
+
+* "sin repetir" → usa **set**
+* "recorrer" → usa **for**
+* "validar" → usa **if**
+* "dividir tiempo" → usa `//` y `%`
+
+---
+
+# 🚀 NIVEL PRO
+
